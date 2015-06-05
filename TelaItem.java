@@ -21,39 +21,63 @@ public class TelaItem {
 	
 	public int opcaoItemACriar()
 	{
-		System.out.println("1: cadastrar livro");
-		System.out.println("2: cadastrar revista");
+		System.out.println("0: cadastrar livro");
+		System.out.println("1: cadastrar revista");
 		return sc.nextInt();
 	}
 	
-	public Item cadastrarLivro()
+	public String getGenero()
+	{
+		System.out.println("entre com o genero: (COMEDIA, DRAMA, POLICIAL");
+		return sc.next();
+	}
+	
+	public HashSet<String> getAutores()
 	{
 		HashSet<String> autores = new HashSet<>();
-		System.out.println("entre com o primeiro autor:");  //criar opçao de adicionar mais autores depois
-		autores.add(sc.next());
-		
-		System.out.println("entre com o titulo:");
-		System.out.println("entre com a editora:");
-		System.out.println("entre com o ano:");
-		System.out.println("faixa etaria :(INFANTIL, JUVENIL, ADULTO)");
-		System.out.println("entre com a edicao");
-		System.out.println("entre com o genero: (COMEDIA, DRAMA, POLICIAL");
-		Livro livro = new Livro(sc.next(), sc.next(), sc.nextInt(), (FaixaEtaria)sc.nextInt(), autores, sc.nextInt(), (Genero)sc.next());  //enum está incorreto
-		return livro;
+		System.out.println("quanto autores deseja cadastrar? ");
+		for (int i = 0; i < sc.nextInt(); i++)
+		{
+			System.out.println("entre com o autor:");
+			autores.add(sc.next());			
+		}
+		return autores;
 	}
 	
-	public Item cadastrarRevista()
+	public int getAno()
 	{
-		System.out.println("entre com o titulo da revista:");
-		System.out.println("entre com a editora:");
-		System.out.println("entre com o ano de publicacao:");
-		System.out.println("faixa etaria :(INFANTIL, JUVENIL, ADULTO)");
-		System.out.println("entre com a edicao");
-		System.out.println("entre com a periodicidade");
-		Revista revista = new Revista(sc.next(), sc.next(), sc.nextInt(), (FaixaEtaria)sc.nextInt(), sc.nextInt(), (Periodicidade)sc.next());   //enum está incorreto
-		return revista;		
+		System.out.println("entre com o ano de publicacao: ");
+		return sc.nextInt();
+	}
+	public String getTitulo()
+	{
+		System.out.println("entre com o titulo: ");
+		return sc.next();
 	}
 	
+	public String getEditora()
+	{
+		System.out.println("entre com a editora:");
+		return sc.next();
+	}
+	
+	public String getFaixaEtaria()
+	{
+		System.out.println("faixa etaria :(INFANTIL, JUVENIL, ADULTO)");
+		return sc.next();
+	}
+	
+	public int getEdicao()
+	{
+		System.out.println("entre com a edicao");
+		return sc.nextInt();
+	}
+
+	public String getPeriodicidade()
+	{
+		System.out.println("entre com a periodicidade");
+		return sc.next();
+	}
 	
 	public int procurarItem()
 	{
@@ -82,6 +106,4 @@ public class TelaItem {
 	public void entradaInvalida(){
 		System.out.println("Entrada invalida!");
 	}
-
-
 }

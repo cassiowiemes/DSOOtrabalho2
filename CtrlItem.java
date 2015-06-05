@@ -6,21 +6,16 @@ public class CtrlItem {
 	private CtrlPrincipal ctrlPrincipal;
 	private TelaItem telaItem;
 	
-	
 	public void iniciar(){
 		int opcao = 0;
 		do{
 			opcao = telaItem.iniciar();
 			switch(opcao){ 
 				case 1:                                            //cadastrar item
-					int opCadastrar = telaItem.opcaoItemACriar();
-					if(opCadastrar == 1)   //cadastrar livro
-						cadastraItem(telaItem.cadastrarLivro());
-					if(opCadastrar == 2)   //cadastrar revista
-						cadastraItem(telaItem.cadastrarRevista());
+					cadastraItem();
 					break;
 				case 2:
-					removeItem();
+					//removeItem();
 					break;
 				case 3:
 					int opProcurar;
@@ -48,13 +43,15 @@ public class CtrlItem {
 			}
 		}while(opcao != 7);
 	}
-
-
 	
 
-	public void cadastraItem(Item item)
+	public void cadastraItem()
 	{
-		itens.add(item);
+		int opcaoItem = telaItem.opcaoItemACriar();
+		if(opcaoItem == 0)
+		{
+			//Livro livro = new Livro()
+		}
 	}
 
 	public void removeItem(Item item) {
